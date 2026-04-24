@@ -1,10 +1,9 @@
-.idea
-.vs
+.idea/
+.vs/
 .vsconfig
+*.sln
+Binaries/
 
-./Binaries
-./DerivedDataCache
-./Intermediate
-./Saved
-
-FrontendUI.sln
+DerivedDataCache/
+Intermediate/
+Saved/
