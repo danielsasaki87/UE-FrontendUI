@@ -1,0 +1,10 @@
+.idea
+.vs
+.vsconfig
+
+./Binaries
+./DerivedDataCache
+./Intermediate
+./Saved
+
+FrontendUI.sln
