@@ -85,20 +85,20 @@ void UFrontendUISubsystem::PushConfirmScreenToModalStackAsync(
 	const FText& InScreenTitle, const FText& InScreenMsg,
 	TFunction<void(EConfirmScreenButtonType)> ButtonClickedCallback)
 {
-	UConfirmScreenInfoObject* CretedInfoObject = nullptr;
+	UConfirmScreenInfoObject* CreatedInfoObject = nullptr;
 	
 	switch (InScreenType)
 	{
 	case EConfirmScreenType::Ok:
-		CretedInfoObject = UConfirmScreenInfoObject::CreateOKScreen(InScreenTitle, InScreenMsg);
+		CreatedInfoObject = UConfirmScreenInfoObject::CreateOKScreen(InScreenTitle, InScreenMsg);
 		break;
 		
-	case EConfirmScreenType::YesNo:
-		CretedInfoObject = UConfirmScreenInfoObject::CreateYesNoScreen(InScreenTitle, InScreenMsg);
+	case EConfirmScreenType::YesNo:	
+		CreatedInfoObject = UConfirmScreenInfoObject::CreateYesNoScreen(InScreenTitle, InScreenMsg);
 		break;
 		
 	case EConfirmScreenType::OkCancel:
-		CretedInfoObject = UConfirmScreenInfoObject::CreateOkCancelScreen(InScreenTitle, InScreenMsg);
+		CreatedInfoObject = UConfirmScreenInfoObject::CreateOkCancelScreen(InScreenTitle, InScreenMsg);
 		break;
 		
 	case EConfirmScreenType::Unknown:
@@ -108,17 +108,17 @@ void UFrontendUISubsystem::PushConfirmScreenToModalStackAsync(
 		break;
 	}
 	
-	check(CretedInfoObject);
+	check(CreatedInfoObject);
 	
 	PushSoftWidgetToStackAsync(
 		FrontendGameplayTags::Frontend_WidgetStack_Modal,
 		UFrontendFunctionLibrary::GetFrontendSoftWidgetClassByTag(FrontendGameplayTags::Frontend_Widget_ConfirmScreen),
-		[CretedInfoObject, ButtonClickedCallback](EAsyncPushWidgetState InPushState, UWidget_ActivatableBase* PushedWidget)
+		[CreatedInfoObject, ButtonClickedCallback](EAsyncPushWidgetState InPushState, UWidget_ActivatableBase* PushedWidget)
 		{
 			if (InPushState == EAsyncPushWidgetState::OnCreatedBeforePush)
 			{
 				UWidget_ConfirmScreen* CreatedConfirmScreen = CastChecked<UWidget_ConfirmScreen>(PushedWidget);
-				CreatedConfirmScreen->InitConfirmScreen(CretedInfoObject, ButtonClickedCallback);
+				CreatedConfirmScreen->InitConfirmScreen(CreatedInfoObject, ButtonClickedCallback);
 			}
 		}
 	);
