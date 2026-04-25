@@ -32,6 +32,7 @@ UAsyncAction_PushSoftWidget* UAsyncAction_PushSoftWidget::PushSoftWidget(
 	}
 	
 	return nullptr;
+	
 }
 
 void UAsyncAction_PushSoftWidget::Activate()
