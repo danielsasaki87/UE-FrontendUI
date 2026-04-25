@@ -100,10 +100,6 @@ void UWidget_ConfirmScreen::InitConfirmScreen(
 		
 		switch (AvailableButtonInfo.ConfirmScreenButtonType)
 		{
-		case EConfirmScreenButtonType::Confirmed:
-			InputActionRowHandle = ICommonInputModule::GetSettings().GetDefaultClickAction();
-			break;
-			
 		case EConfirmScreenButtonType::Cancelled:
 		case EConfirmScreenButtonType::Closed:
 			InputActionRowHandle = ICommonInputModule::GetSettings().GetDefaultBackAction();
@@ -115,7 +111,7 @@ void UWidget_ConfirmScreen::InitConfirmScreen(
 		
 		UFrontendCommonButtonBase* AddedButton = DynamicEntryBox_Buttons->CreateEntry<UFrontendCommonButtonBase>();
 		AddedButton->SetButtonText(AvailableButtonInfo.ButtonTextToDisplay);
-		AddedButton->SetTriggeredInputAction(InputActionRowHandle);
+		AddedButton->SetTriggeringInputAction(InputActionRowHandle);
 		AddedButton->OnClicked().AddLambda(
 			[ClickedButonCallback, AvailableButtonInfo, this]()
 			{
