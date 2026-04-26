@@ -31,7 +31,6 @@ private:
 	virtual void NativeOnUnhovered() override;
 	//~End UCommonButtonBase Interface
 	
-	
 	//**** Bound Widgets ****// 
 	UPROPERTY(meta = (BindWidgetOptional))
 	UCommonTextBlock* CommonTextBlock_ButtonText;
