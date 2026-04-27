@@ -17,13 +17,15 @@ class FRONTENDUI_API UFrontendTabListWidgetBase : public UCommonTabListWidgetBas
 {
 	GENERATED_BODY()
 	
+public:
+	void RequestRegisterTab(const FName& InTabID, const FText& InTabDisplayName);
+	
 private:
 	
 	//~Begin UWidget Interface
 #if WITH_EDITOR
 	virtual void ValidateCompiledDefaults(class IWidgetCompilerLog& CompileLog) const override;
 #endif
-	
 	//~End UWidget Interface
 	
 	

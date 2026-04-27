@@ -1,4 +1,5 @@
 // Daniel E. I. Sasaki All Rights Reserved
+#pragma once
 
 #include "CoreMinimal.h"
 #include "CommonUserWidget.h"
