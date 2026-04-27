@@ -39,7 +39,7 @@ public:
 	virtual bool ShouldCreateSubsystem(UObject* Outer) const override;
 	//~ End USubsystem Interface
 	
-	UFUNCTION(BLueprintCallable)
+	UFUNCTION(BlueprintCallable)
 	void RegisterCreatedPrimaryLayoutWidget(UWidget_PrimaryLayout* InCreatedWidget);
 	
 	void PushSoftWidgetToStackAsync(
